@@ -96,8 +96,8 @@ EXPOSE 80
 # If you're running docker version 25.0 or later, you could consider
 # changing the following line to
 # HEALTHCHECK --start-period=30s --start-interval=5s --interval=5m --timeout=2s \
-HEALTHCHECK --interval=1m --timeout=2s \
-    CMD /usr/bin/python3 /var/www/html/jobe/minimaltest.py || exit 1
+#HEALTHCHECK --interval=1m --timeout=2s \
+#    CMD /usr/bin/python3 /var/www/html/jobe/minimaltest.py || exit 1
 
 # Start apache
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
