@@ -1,0 +1,18 @@
+services:
+  jobe:
+    build:
+      context: .
+      args:
+        TZ: "Europe/Berlin"
+      secrets:
+        - "api_keys"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jobe.rule=Host(`jobe.audijo.de`)"
+      - "traefik.http.routers.jobe.entrypoints=websecure"
+      - "traefik.http.routers.jobe.tls=true"
+      - "traefik.http.routers.jobe.tls.certresolver=myresolver"
+
+secrets:
+  api_keys:
+    file: "./api_keys"
